@@ -115,6 +115,6 @@ func main() {
 I hope you find this project and I really learned a lot about go making it and in the past week learning the langauge, future plans surround extending this library to suppourt sessions and headers in an easy and convinent way!
 Any feedback and advice is welcome, thanks!
 
-contact: _simantak@thepirateship.net_
+contact: _team@thepirateship.net_
 
 ~ The PirateShip :)
