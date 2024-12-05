@@ -1,7 +1,7 @@
 # Requests - A simple package to manage API calls
 
 Hey yall's! I'm new to the go ecosystem and really loved the language and wanted something fun as a starter project.
-Since I come from the python world, here is a quick and simple abstraction for http requests for API similar to the requests library in python!
+Since I come from the python world, here is a quick and simple abstraction for http requests for API; similar to the requests library in python!
 Any feedback, messages or improvements are welcome, I hope you find it useful!
 
 # Installation
