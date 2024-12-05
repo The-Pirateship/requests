@@ -16,13 +16,14 @@ go get github.com/The-Pirateship/requests
 
 Using requests in go is very simple and similar to the requests package in python
 
-1) First import the package
+1. First import the package
 
 ```go
 import "github.com/The-Pirateship/requests"
 ```
 
-2) Define your url and some payload (for post requests)
+2. Define your url and some payload (for post requests)
+
 ```go
 
 url := "https://example.com/endpoint"
@@ -34,7 +35,7 @@ payload := map[string]interface{}{
 }
 ```
 
-3) Make a request and process the output!
+3. Make a request and process the output!
 
 ```go
 response, err := requests.Post(url, payload)
@@ -52,9 +53,10 @@ data := response.Body	// this is a []bytes type and can be unmarshalled into a s
 
 ```
 
-Heres examples for Get and Delete requests too!
+Heres examples for Get, Put & Delete requests too!
 
 ## Get
+
 ```go
 package main
 
@@ -83,7 +85,44 @@ func main() {
 }
 ```
 
+## Put
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/The-Pirateship/requests"
+)
+
+func main() {
+    url := "https://jsonplaceholder.typicode.com/posts/1"
+    payload := map[string]interface{}{
+        "title":  "Updated Title",
+        "body":   "Updated Body Content",
+        "userId": 1,
+    }
+
+    // Making the PUT request
+    response, err := requests.Put(url, payload)
+    if err != nil {
+        fmt.Printf("Error occurred: %v\n", err)
+        return
+    }
+
+    if response.StatusCode != http.StatusOK {
+        fmt.Printf("Non-200 status code: %d\n", response.StatusCode)
+        fmt.Printf("Response Body: %s\n", string(response.Body))
+        return
+    }
+
+    fmt.Println("PUT request successful!")
+    fmt.Printf("Response Body: %s\n", string(response.Body))
+}
+```
+
 ## Delete
+
 ```go
 package main
 
@@ -102,7 +141,7 @@ func main() {
         return
     }
 
-    if response.StatusCode != http.StatusOK { 
+    if response.StatusCode != http.StatusOK {
         fmt.Printf("Non-200 status code: %d\n", response.StatusCode)
         fmt.Printf("Response Body: %s\n", string(response.Body))
         return
